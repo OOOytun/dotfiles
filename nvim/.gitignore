@@ -1,0 +1,16 @@
+# Session files
+*.session
+*.vim
+
+# Swap and backup files
+*.swp
+*.swo
+*~
+.backup/
+.undo/
+
+# LSP cache
+.cache/
+
+# macOS
+.DS_Store

@@ -1,0 +1,22 @@
+# Session and temporary files
+*.swp
+*.swo
+*~
+*.session
+*.vim
+
+# Backup files
+*.backup
+.backup/
+.undo/
+
+# Cache and temporary directories
+.cache/
+.local/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Lazy.nvim plugin installations (managed separately)
+nvim/lazy/
