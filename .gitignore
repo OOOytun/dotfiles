@@ -20,3 +20,7 @@ Thumbs.db
 
 # Lazy.nvim plugin installations (managed separately)
 nvim/lazy/
+
+# Environment variables with sensitive credentials
+.env
+.env.local

@@ -57,6 +57,9 @@ play = [
 	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
+xcode = [
+	{ run = 'open -a Xcode "$@"', orphan = true, desc = "Xcode", for = "macos" },
+]
 
 [open]
 rules = [
@@ -73,6 +76,9 @@ rules = [
 	# JSON
 	{ mime = "application/{json,ndjson}", use = [ "edit", "reveal" ] },
 	{ mime = "*/javascript", use = [ "edit", "reveal" ] },
+	# Xcode projects
+	{ name = "*.xcodeproj", use = [ "xcode", "reveal" ] },
+	{ name = "*.xcworkspace", use = [ "xcode", "reveal" ] },
 	# Empty file
 	{ mime = "inode/empty", use = [ "edit", "reveal" ] },
 	# Fallback
