@@ -20,7 +20,7 @@ title_format   = "Yazi: {cwd}"
 wrap            = "no"
 tab_size        = 2
 max_width       = 600
-max_height      = 900
+max_height      = 1000
 cache_dir       = ""
 image_delay     = 30
 image_filter    = "triangle"
@@ -52,7 +52,8 @@ extract = [
 	{ run = 'ya pub extract --list %*',   desc = "Extract here", for = "windows" },
 ]
 play = [
-	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+	{ run = 'open -a IINA "$@"', orphan = true, for = "macos" },
+	{ run = 'mpv --force-window "$@"', orphan = true, for = "linux" },
 	{ run = 'mpv --force-window %*', orphan = true, for = "windows" },
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
