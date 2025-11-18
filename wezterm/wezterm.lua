@@ -56,5 +56,30 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 10
 
+-- ---- Keybindings ----
+config.keys = {
+    -- Split panes
+    {key = "RightArrow", mods = "SUPER|SHIFT", action = wezterm.action{SplitPane = {direction = "Right"}}},
+    {key = "DownArrow", mods = "SUPER|SHIFT", action = wezterm.action{SplitPane = {direction = "Down"}}},
+    {key = "LeftArrow", mods = "SUPER|SHIFT", action = wezterm.action{SplitPane = {direction = "Left"}}},
+    {key = "UpArrow", mods = "SUPER|SHIFT", action = wezterm.action{SplitPane = {direction = "Up"}}},
+
+    -- Navigate between panes
+    {key = "RightArrow", mods = "SUPER|ALT", action = wezterm.action{ActivatePaneDirection = "Right"}},
+    {key = "DownArrow", mods = "SUPER|ALT", action = wezterm.action{ActivatePaneDirection = "Down"}},
+    {key = "LeftArrow", mods = "SUPER|ALT", action = wezterm.action{ActivatePaneDirection = "Left"}},
+    {key = "UpArrow", mods = "SUPER|ALT", action = wezterm.action{ActivatePaneDirection = "Up"}},
+
+    -- Close pane
+    {key = "w", mods = "SUPER|SHIFT", action = wezterm.action{CloseCurrentPane = {confirm = true}}},
+
+    -- Clear terminal
+    {key = "k", mods = "SUPER", action = wezterm.action{SendString = "clear\n"}},
+
+    -- Additional keybindings
+    {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
+    {key="Backspace", mods="SUPER", action=wezterm.action.SendKey{key="u", mods="CTRL"}},
+}
+
 -- and finally, return the configuration to wezterm
 return config
