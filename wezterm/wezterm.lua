@@ -73,8 +73,17 @@ config.keys = {
     -- Close pane
     {key = "w", mods = "SUPER|SHIFT", action = wezterm.action{CloseCurrentPane = {confirm = true}}},
 
+    -- Toggle pane zoom
+    {key = "z", mods = "SUPER", action = wezterm.action.TogglePaneZoomState},
+
     -- Clear terminal
     {key = "k", mods = "SUPER", action = wezterm.action{SendString = "clear\n"}},
+
+    -- Jump to end of line
+    {key = "RightArrow", mods = "SUPER", action = wezterm.action.SendKey{key = "e", mods = "CTRL"}},
+
+    -- Jump to beginning of line
+    {key = "LeftArrow", mods = "SUPER", action = wezterm.action.SendKey{key = "a", mods = "CTRL"}},
 
     -- Additional keybindings
     {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
