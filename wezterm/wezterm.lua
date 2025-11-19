@@ -28,26 +28,26 @@ config.hide_tab_bar_if_only_one_tab = false
 
 -- Terminal-style tab bar colors
 config.colors.tab_bar = {
-    background = "#011423",
+    background = "rgba(1, 20, 35, 0.8)",
     active_tab = {
-        bg_color = "#011423",
+        bg_color = "rgba(1, 20, 35, 0.8)",
         fg_color = "#0FC5ED",
         intensity = "Bold",
     },
     inactive_tab = {
-        bg_color = "#011423",
+        bg_color = "rgba(1, 20, 35, 0.8)",
         fg_color = "#214969",
     },
     inactive_tab_hover = {
-        bg_color = "#011423",
+        bg_color = "rgba(1, 20, 35, 0.8)",
         fg_color = "#CBE0F0",
     },
     new_tab = {
-        bg_color = "#011423",
+        bg_color = "rgba(1, 20, 35, 0.8)",
         fg_color = "#214969",
     },
     new_tab_hover = {
-        bg_color = "#011423",
+        bg_color = "rgba(1, 20, 35, 0.8)",
         fg_color = "#47FF9C",
     },
 }
