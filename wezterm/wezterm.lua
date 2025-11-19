@@ -70,6 +70,12 @@ config.keys = {
     {key = "LeftArrow", mods = "SUPER|ALT", action = wezterm.action{ActivatePaneDirection = "Left"}},
     {key = "UpArrow", mods = "SUPER|ALT", action = wezterm.action{ActivatePaneDirection = "Up"}},
 
+    -- Navigate between panes with Ctrl
+    {key = "RightArrow", mods = "CTRL", action = wezterm.action{ActivatePaneDirection = "Right"}},
+    {key = "DownArrow", mods = "CTRL", action = wezterm.action{ActivatePaneDirection = "Down"}},
+    {key = "LeftArrow", mods = "CTRL", action = wezterm.action{ActivatePaneDirection = "Left"}},
+    {key = "UpArrow", mods = "CTRL", action = wezterm.action{ActivatePaneDirection = "Up"}},
+
     -- Close pane
     {key = "w", mods = "SUPER|SHIFT", action = wezterm.action{CloseCurrentPane = {confirm = true}}},
 
