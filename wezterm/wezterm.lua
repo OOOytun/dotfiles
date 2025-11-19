@@ -59,7 +59,7 @@ config.macos_window_background_blur = 10
 -- Dim inactive panes to make active pane more visible
 config.inactive_pane_hsb = {
     hue = 1,
-    saturation = 1,
+    saturation = 0.7,
     brightness = 0.6,
 }
 
