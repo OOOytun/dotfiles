@@ -56,6 +56,13 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 10
 
+-- Dim inactive panes to make active pane more visible
+config.inactive_pane_hsb = {
+    hue = 1,
+    saturation = 1,
+    brightness = 0.6,
+}
+
 -- ---- Keybindings ----
 config.keys = {
     -- Split panes
