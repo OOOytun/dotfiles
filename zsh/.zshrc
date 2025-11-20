@@ -92,6 +92,11 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Fallback if Powerlevel10k isn't available
+if [[ -z "${POWERLEVEL10K_LOADED-}" ]] && [[ -z "${PROMPT:-}" || "$PROMPT" == "%m%# " ]]; then
+    PROMPT='%F{cyan}%~%f %# '
+fi
+
 # ---- Zsh Plugins ----
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS Homebrew
