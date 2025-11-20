@@ -1,6 +1,17 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
+-- Toggle font size between 12 and 14
+wezterm.on('toggle-font-size', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if overrides.font_size == nil or overrides.font_size == 14 then
+    overrides.font_size = 12
+  else
+    overrides.font_size = 14
+  end
+  window:set_config_overrides(overrides)
+end)
+
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -19,7 +30,7 @@ config.colors = {
 }
 
 config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font_size = 16
+config.font_size = 14
 
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
@@ -106,6 +117,9 @@ config.keys = {
     -- Additional keybindings
     {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
     {key="Backspace", mods="SUPER", action=wezterm.action.SendKey{key="u", mods="CTRL"}},
+
+    -- Toggle font size between 12 and 14
+    {key = "f", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent('toggle-font-size')},
 }
 
 -- and finally, return the configuration to wezterm
