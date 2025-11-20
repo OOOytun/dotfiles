@@ -39,6 +39,14 @@ export PATH="$PATH:$HOME/.cache/lm-studio/bin"
 export PATH="/Users/oytun/.codeium/windsurf/bin:$PATH"
 export PATH="/usr/bin:$PATH"
 
+# Yarn global binaries
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Cargo (Rust) - used on remote machines
+if [ -d "$HOME/.cargo/bin" ]; then
+  export PATH="$PATH:$HOME/.cargo/bin"
+fi
+
 # Kanata keyboard remapping alias
 # NOTE: Remove passwords from aliases for security. Use sudo configuration instead.
 # To enable passwordless sudo for kanata, add to sudoers:
@@ -128,4 +136,3 @@ export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 #
-

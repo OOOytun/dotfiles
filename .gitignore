@@ -13,6 +13,7 @@
 # Cache and temporary directories
 .cache/
 .local/
+node_modules/
 
 # OS
 .DS_Store
