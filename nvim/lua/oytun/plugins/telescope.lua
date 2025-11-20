@@ -12,7 +12,7 @@ return {
 
     telescope.setup({
       defaults = {
-        path_display = { "smart" },
+        path_display = { "truncate" },
         vimgrep_arguments = {
           'rg',
           '--color=never',
