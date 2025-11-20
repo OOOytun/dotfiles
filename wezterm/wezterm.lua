@@ -52,6 +52,11 @@ config.colors.tab_bar = {
     },
 }
 
+-- Hide workspace status on right side of tab bar
+wezterm.on('update-status', function(window, pane)
+  window:set_right_status('')
+end)
+
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 40
