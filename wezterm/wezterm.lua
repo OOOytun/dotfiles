@@ -184,7 +184,10 @@ config.keys = {
     {key = "w", mods = "SUPER|SHIFT", action = wezterm.action{CloseCurrentPane = {confirm = true}}},
 
     -- Toggle pane zoom
-    {key = "z", mods = "SUPER", action = wezterm.action.TogglePaneZoomState},
+    {key = "z", mods = "SUPER|SHIFT", action = wezterm.action.TogglePaneZoomState},
+
+    -- Undo in shell (sends Ctrl+_)
+    {key = "z", mods = "SUPER", action = wezterm.action.SendKey{key = "_", mods = "CTRL"}},
 
     -- Clear terminal
     {key = "k", mods = "SUPER", action = wezterm.action{SendString = "clear\n"}},
