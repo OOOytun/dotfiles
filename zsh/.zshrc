@@ -119,6 +119,12 @@ bindkey '^[[B' history-search-forward
 # ---- Eza (better ls) -----
 alias ls="eza --icons=always"
 
+# ---- FZF Configuration ----
+# Show hidden files in fuzzy finder (excluding .git)
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 #

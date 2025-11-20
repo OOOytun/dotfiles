@@ -13,12 +13,29 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "smart" },
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden', -- Show hidden files
+          '--glob=!.git/', -- Exclude .git directory
+        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true, -- Show hidden files
+          find_command = { 'rg', '--files', '--hidden', '--glob=!.git/' },
         },
       },
     })
