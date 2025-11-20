@@ -118,3 +118,8 @@ bindkey '^[[B' history-search-forward
 
 # ---- Eza (better ls) -----
 alias ls="eza --icons=always"
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+#
+
