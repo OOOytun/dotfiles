@@ -3,12 +3,22 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local nvimtree = require("nvim-tree")
+    local api = require("nvim-tree.api")
+
+    local function on_attach(bufnr)
+      local opts = { buffer = bufnr, noremap = true, silent = true, nowait = true }
+
+      vim.keymap.set("n", "v", api.node.open.vertical, vim.tbl_extend("keep", {
+        desc = "Open in vertical split",
+      }, opts))
+    end
 
     -- recommended settings from nvim-tree documentation
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
     nvimtree.setup({
+      on_attach = on_attach,
       view = {
         width = 35,
         relativenumber = true,
