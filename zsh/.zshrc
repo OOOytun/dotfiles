@@ -37,7 +37,6 @@ export PATH="$PATH:$HOME/.cache/lm-studio/bin"
 
 # Windsurf
 export PATH="/Users/oytun/.codeium/windsurf/bin:$PATH"
-export PATH="/usr/bin:$PATH"
 
 # Yarn global binaries
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
