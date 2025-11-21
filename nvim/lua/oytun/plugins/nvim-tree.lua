@@ -6,6 +6,8 @@ return {
     local api = require("nvim-tree.api")
 
     local function on_attach(bufnr)
+      api.config.mappings.default_on_attach(bufnr)
+
       local opts = { buffer = bufnr, noremap = true, silent = true, nowait = true }
 
       vim.keymap.set("n", "v", api.node.open.vertical, vim.tbl_extend("keep", {
