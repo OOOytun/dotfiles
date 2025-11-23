@@ -190,7 +190,7 @@ config.keys = {
     {key = "z", mods = "SUPER", action = wezterm.action.SendKey{key = "_", mods = "CTRL"}},
 
     -- Clear terminal
-    {key = "k", mods = "SUPER", action = wezterm.action{SendString = "clear\n"}},
+    {key = "k", mods = "SUPER", action = wezterm.action.ClearScrollback('ScrollbackAndViewport')},
 
     -- Jump to end of line
     {key = "RightArrow", mods = "SUPER", action = wezterm.action.SendKey{key = "e", mods = "CTRL"}},
