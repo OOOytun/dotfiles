@@ -202,6 +202,9 @@ config.keys = {
     {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
     {key="Backspace", mods="SUPER", action=wezterm.action.SendKey{key="u", mods="CTRL"}},
 
+    -- Toggle full screen for the window
+    {key = "Enter", mods = "SUPER|CTRL", action = wezterm.action.ToggleFullScreen},
+
     -- Toggle font size between 12 and 14
     {key = "f", mods = "SUPER|SHIFT", action = wezterm.action.EmitEvent('toggle-font-size')},
 }
