@@ -16,6 +16,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
     export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
     export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/Users/oytun/go/bin:$PATH"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
     export JAVA_HOME=/usr/lib/jvm/java-17-openjdk

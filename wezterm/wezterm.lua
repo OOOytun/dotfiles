@@ -149,15 +149,15 @@ wezterm.on('update-status', function(window, pane)
   window:set_right_status('')
 end)
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE|RESIZE"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 40
 
 -- Dim inactive panes to make active pane more visible
 config.inactive_pane_hsb = {
     hue = 1,
-    saturation = 1,
-    brightness = 0.6,
+    saturation = 0.75,
+    brightness = 0.8,
 }
 
 -- ---- Keybindings ----
