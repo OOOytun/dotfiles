@@ -76,6 +76,8 @@ function y() {
 # Initialize zoxide
 eval "$(zoxide init zsh)"
 
+alias cd="z"
+
 # ---- Powerlevel10k Theme ----
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS Homebrew
