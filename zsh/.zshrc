@@ -150,3 +150,42 @@ if command -v fzf >/dev/null 2>&1; then
     [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
   fi
 fi
+
+# Launches a Slavic School workspace in a new tab with server/web/mobile panes.
+function sla() {
+  local base_dir="$HOME/work/slavic-school"
+
+  if ! command -v wezterm >/dev/null 2>&1; then
+    echo "wezterm command is required for sla" >&2
+    return 1
+  fi
+
+  if [ ! -d "$base_dir" ]; then
+    echo "Missing directory: $base_dir" >&2
+    return 1
+  fi
+
+  local left_pane right_top right_bottom
+
+  if ! left_pane=$(wezterm cli spawn --cwd "$base_dir"); then
+    echo "Unable to start WezTerm tab" >&2
+    return 1
+  fi
+  left_pane=$(printf '%s' "$left_pane" | tr -d '\r\n')
+
+  if ! right_top=$(wezterm cli split-pane --pane-id "$left_pane" --right --percent 35 --cwd "$base_dir"); then
+    echo "Unable to create right pane" >&2
+    return 1
+  fi
+  right_top=$(printf '%s' "$right_top" | tr -d '\r\n')
+
+  if ! right_bottom=$(wezterm cli split-pane --pane-id "$right_top" --bottom --percent 50 --cwd "$base_dir"); then
+    echo "Unable to create bottom-right pane" >&2
+    return 1
+  fi
+  right_bottom=$(printf '%s' "$right_bottom" | tr -d '\r\n')
+
+  wezterm cli send-text --pane-id "$left_pane" --no-paste $'cd server && yarn start\r'
+  wezterm cli send-text --pane-id "$right_top" --no-paste $'cd web && yarn start\r'
+  wezterm cli send-text --pane-id "$right_bottom" --no-paste $'cd mobile && yarn start\r'
+}
