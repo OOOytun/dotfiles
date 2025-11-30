@@ -22,6 +22,7 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
     export ANDROID_HOME=$HOME/Android/Sdk
     export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+    [ "$EUID" -eq 0 ] && export PM2_HOME=/root/.pm2
 fi
 
 # NVM Setup
