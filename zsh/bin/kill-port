@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  echo "Usage: kill-port <port>" >&2
+}
+
+if [ $# -ne 1 ]; then
+  usage
+  exit 1
+fi
+
+port="$1"
+if ! [[ "$port" =~ ^[0-9]+$ ]] || [ "$port" -lt 1 ] || [ "$port" -gt 65535 ]; then
+  echo "Invalid port: $port" >&2
+  exit 1
+fi
+
+pids=()
+while IFS= read -r pid; do
+  if [ -n "$pid" ]; then
+    pids+=("$pid")
+  fi
+done < <(lsof -t -i tcp:"$port" 2>/dev/null | sort -u)
+
+if [ ${#pids[@]} -eq 0 ]; then
+  echo "No processes found on port $port" >&2
+  exit 1
+fi
+
+for pid in "${pids[@]}"; do
+  if kill -0 "$pid" 2>/dev/null; then
+    kill "$pid"
+    sleep 0.1
+  fi
+
+  if kill -0 "$pid" 2>/dev/null; then
+    kill -9 "$pid"
+  fi
+
+  name=$(ps -p "$pid" -o comm= 2>/dev/null || true)
+  echo "Killed $pid ${name:+($name)} on port $port"
+done

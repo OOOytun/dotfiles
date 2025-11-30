@@ -189,3 +189,19 @@ function sla() {
   wezterm cli send-text --pane-id "$right_top" --no-paste $'cd web && yarn start\r'
   wezterm cli send-text --pane-id "$right_bottom" --no-paste $'cd mobile && yarn start\r'
 }
+
+# Kill processes bound to the given port.
+function kp() {
+  if [ -z "$1" ]; then
+    echo "Usage: kp <port>" >&2
+    return 1
+  fi
+
+  local killer="$HOME/dotfiles/zsh/bin/kill-port"
+  if [ ! -x "$killer" ]; then
+    echo "kill-port helper not found at $killer" >&2
+    return 1
+  fi
+
+  "$killer" "$1"
+}
